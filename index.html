@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nandini ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="welcomeScreen" class="screen welcome">
+        <div class="welcome-box">
+            <div class="heart">❤️</div>
+            <h1>Nandini...</h1>
+            <p>I have something very special to tell you. 🥺</p>
+            <button onclick="openProposal()">Open My Heart 💌</button>
+        </div>
+    </section>
+
+    <section id="proposalScreen" class="screen proposal hidden">
+        <div class="card">
+            <div class="big-heart">❤️</div>
+            <div class="ring">💍</div>
+            <h1>Hey Nandini ❤️</h1>
+            <p class="intro">Please read this till the end... 🥺</p>
+
+            <div class="message">
+                <p>I don't know exactly when it happened, but somewhere between our conversations and little moments... you became really special to me. ❤️</p>
+                <p>तुझ्याशी बोलताना एक वेगळीच happiness मिळते... तुझं smile पाहिलं की सगळं tension विसरून जातो. 💕</p>
+                <p>कदाचित हे सांगायला मला थोडा वेळ लागला, पण आज मनातलं लपवायचं नाही...</p>
+                <p class="special">Nandini, I really really like you. ❤️</p>
+            </div>
+
+            <h2>Will You Be Mine? 💍</h2>
+
+            <div class="buttons">
+                <button class="yes" onclick="sayYes()">YES ❤️</button>
+                <button class="no" onclick="sayNo()">NO 😜</button>
+            </div>
+
+            <div id="result"></div>
+        </div>
+    </section>
+
+    <script>
+        function openProposal() {
+            document.getElementById("welcomeScreen").classList.add("hidden");
+            document.getElementById("proposalScreen").classList.remove("hidden");
+        }
+
+        function sayYes() {
+            document.getElementById("result").innerHTML = `
+                <div class="success">
+                    ❤️🥺❤️🥺❤️
+                    <br><br>
+                    YAAAAAY NANDINI! 💕
+                    <br><br>
+                    You just made my heart the happiest! 💍❤️
+                    <br><br>
+                    Forever starts with YOU. ❤️
+                </div>`;
+            celebrate();
+        }
+
+        function sayNo() {
+            document.getElementById("result").innerHTML = `
+                <div class="try-again">
+                    🥺❤️
+                    <br><br>
+                    Are you sure, Nandini?
+                    <br>
+                    Give my heart one more chance... 💕
+                    <br><br>
+                    😜❤️
+                </div>`;
+        }
+
+        function celebrate() {
+            for (let i = 0; i < 80; i++) {
+                let heart = document.createElement("div");
+                heart.className = "falling-heart";
+                heart.innerHTML = ["❤️","💕","💖","💗","💘","💝"][Math.floor(Math.random() * 6)];
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 6000);
+            }
+        }
+    </script>
+</body>
+</html>
